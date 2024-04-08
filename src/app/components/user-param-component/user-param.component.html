@@ -1,0 +1,70 @@
+<form [formGroup]="userParamForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Introduceți datele pentru calculatorul nutrițional:</legend>
+    
+    <!-- Greutate -->
+    <div class="form-group row">
+      <label for="weight" class="col-sm-2 col-form-label">Weight (kg)</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" formControlName="weight" placeholder="Enter the weight">
+      </div>
+    </div>
+    
+    <!-- Înălțime -->
+    <div class="form-group row">
+      <label for="height" class="col-sm-2 col-form-label">Height (cm)</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" formControlName="height" placeholder="Enter the height">
+      </div>
+    </div>
+    
+    <!-- Data nașterii -->
+    <div class="form-group">
+      <label for="birthDay" class="form-label">Birthday</label>
+      <input type="date" class="form-control" formControlName="birthDay" placeholder="Introduceți data nașterii">
+    </div>
+    
+    <!-- Gen -->
+    <div class="form-group">
+      <label for="gender" class="form-label">Gender</label>
+      <select class="form-select" formControlName="gender">
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+      </select>
+    </div>
+    
+    <!-- Nivel de Activitate -->
+    <div class="form-group">
+      <label for="trainingType" class="form-label">Activity level</label>
+      <select class="form-select" formControlName="trainingType">
+        <option value="SEDENTARY">Sedentary</option>
+        <option value="LIGHTLY_ACTIVE">Lightly active</option>
+        <option value="MODERATELY_ACTIVE">Moderately active</option>
+        <option value="VERY_ACTIVE">Very active</option>
+        <option value="EXTRA_ACTIVE">Extra active</option>
+      </select>
+    </div>
+    
+    <!-- Obiectiv de Greutate -->
+    <div class="form-group">
+      <label for="weightGoal" class="form-label">Weight Goal</label>
+      <select class="form-select" formControlName="weightGoal">
+        <option value="LOSE_WEIGHT">Lose weight</option>
+        <option value="MAINTAIN_WEIGHT">Maintain weight</option>
+        <option value="GAIN_WEIGHT">Gain weight</option>
+      </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+    <!-- Mesaj de succes -->
+    <div *ngIf="isSuccessful" class="alert alert-success mt-3">
+      Your parameters have been successfully submitted!
+    </div>
+    
+    <!-- Mesaj de eroare -->
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </fieldset>
+</form>

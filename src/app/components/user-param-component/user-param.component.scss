@@ -1,0 +1,56 @@
+/* Stilizarea generală a formularului */
+form {
+    background-color: #2c3e50; /* Schimbă această culoare pentru a se potrivi cu schema ta de culori */
+    color: #ecf0f1; /* Culoare text deschisă pentru contrast */
+    padding: 20px 25px 30px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+  }
+  
+  /* Stilizarea etichetelor */
+  form label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  /* Stilizarea input-urilor și a select-urilor */
+  form input, form select, form button[type="submit"] {
+    width: 100%; /* Asigură-te că elementele de formular ocupă întreaga lățime */
+    margin-top: 5px;
+    margin-bottom: 15px; /* Spațiere între elemente */
+    border: 1px solid #34495e; /* Bordură subtilă */
+    border-radius: 4px; /* Borduri rotunjite */
+    padding: 10px; /* Un padding decent pentru a face input-urile mai ușor de folosit */
+    background-color: #34495e; /* Fundal mai închis pentru input-uri */
+    color: #ecf0f1; /* Text deschis pentru citire ușoară */
+  }
+  
+  /* Asigură-te că placeholder-urile sunt vizibile */
+  form input::placeholder, form select::placeholder {
+    color: #95a5a6;
+    opacity: 1; /* Asigură-te că placeholder-urile sunt suficient de vizibile */
+  }
+  
+  /* Stilizarea butonului */
+  form button[type="submit"] {
+    background-color: #18bc9c; /* O culoare vibrantă pentru buton */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #16a085; /* O nuanță puțin mai închisă la hover */
+  }
+  
+  /* Stilizarea legendului */
+  form legend {
+    padding-bottom: 10px;
+    color: #ecf0f1;
+  }
+  
