@@ -1,0 +1,63 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+
+    <!-- Afiseaza formularul doar daca utilizatorul nu este logat -->
+    <div *ngIf="!isLoggedIn">
+      <form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+        <!-- Input pentru username -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+          />
+          <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
+            <div *ngIf="username.errors['required']">Username is required</div>
+            <div *ngIf="username.errors['minlength']">Username must be at least 3 characters</div>
+            <div *ngIf="username.errors['maxlength']">Username must be at most 20 characters</div>
+          </div>
+        </div>
+
+        <!-- Input pentru password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+          />
+          <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+            <div *ngIf="password.errors['required']">Password is required</div>
+            <div *ngIf="password.errors['minlength']">Password must be at least 6 characters</div>
+          </div>
+        </div>
+
+        <!-- Butonul de login -->
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Login</button>
+        </div>
+
+        <!-- Mesaj de eroare in caz de login esuat -->
+        <div *ngIf="isLoginFailed" class="alert alert-danger" role="alert">
+          Login failed: {{ errorMessage }}
+        </div>
+      </form>
+    </div>
+
+    <!-- Mesaj de succes dupa login -->
+    <div *ngIf="isLoggedIn" class="alert alert-success">
+      Logged in as {{ roles }}.
+    </div>
+  </div>
+</div>

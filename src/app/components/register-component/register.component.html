@@ -1,0 +1,63 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+    
+    <div *ngIf="!isSuccessful">
+      <form (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+        
+        <!-- Username Input -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" [(ngModel)]="form.username" name="username" #username="ngModel" required minlength="3" maxlength="20" [class.is-invalid]="username.invalid && (username.dirty || username.touched)">
+          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="invalid-feedback">
+            <div *ngIf="username.errors?.['required']">Username is required.</div>
+            <div *ngIf="username.errors?.['minlength']">Username must be at least 3 characters.</div>
+            <div *ngIf="username.errors?.['maxlength']">Username cannot be more than 20 characters.</div>
+          </div>
+        </div>
+        
+        <!-- Email Input -->
+<div class="form-group">
+  <label for="email">Email</label>
+  <input type="email" class="form-control" [(ngModel)]="form.email" name="email" #email="ngModel" required [class.is-invalid]="email.invalid && (email.dirty || email.touched)">
+  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+    <div *ngIf="email.errors?.['required']">Email is required.</div>
+    <div *ngIf="email.errors?.['email']">Email must be a valid email address.</div>
+  </div>
+</div>
+
+<!-- Role Selection -->
+<div class="form-group">
+  <label for="role">Role</label>
+  <select class="form-control" [(ngModel)]="form.role" name="role" #role="ngModel" required [class.is-invalid]="role.invalid && (role.dirty || role.touched)">
+    <option value="user">User</option>
+    <option value="mod">Moderator</option>
+  </select>
+  <div *ngIf="role.invalid && (role.dirty || role.touched)" class="invalid-feedback">
+    <div *ngIf="role.errors?.['required']">Role is required.</div>
+  </div>
+</div>
+
+<!-- Password Input -->
+<div class="form-group">
+  <label for="password">Password</label>
+  <input type="password" class="form-control" [(ngModel)]="form.password" name="password" #password="ngModel" required minlength="6" [class.is-invalid]="password.invalid && (password.dirty || password.touched)">
+  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+    <div *ngIf="password.errors?.['required']">Password is required.</div>
+    <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters.</div>
+  </div>
+</div>
+
+        <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+        
+        <div *ngIf="isSignUpFailed" class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
+      </form>
+    </div>
+    
+    <div *ngIf="isSuccessful" class="alert alert-success">
+      Your registration is successful!
+    </div>
+  </div>
+</div>
