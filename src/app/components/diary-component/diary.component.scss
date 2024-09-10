@@ -1,0 +1,85 @@
+.diary-title {
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  color: #385A0E;
+  margin: 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.date-format {
+  font-size: 1.6em;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 0;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+}
+
+.full-calendar-container {
+  //width: 35%;
+  max-width:700px;
+  max-height: 450px;
+  margin: 0 auto;
+  background-color: #ffffff66;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+
+.progress-container {
+  margin: 20px auto;
+  width: 70%;
+  text-align: center;
+
+  .progress {
+    margin-bottom: 20px;
+    background-color: #ffffff99;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 20px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+  }
+
+  .nutrient-title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: whitesmoke;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    }
+
+}
+
+.margin-meals {
+  margin-top: 4rem;
+}
+
+.meal-type-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+
+  .add-button {
+    background-color: #95950E;
+    color: whitesmoke;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+
+  .add-button:hover {
+    background-color: #C3C20E;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.8);
+  }
+}
+

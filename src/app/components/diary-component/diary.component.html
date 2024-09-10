@@ -1,0 +1,83 @@
+<div >
+  <p class="diary-title">My Diary</p>
+  <p class="date-format" *ngIf="selectedDate">Selected Date: {{ selectedDate }}</p>
+</div>
+
+<div class="full-calendar-container">
+  <full-calendar [options]="calendarOptions" style="scale: 100%; max-height: 430px"></full-calendar>
+</div>
+
+<ng-container *ngIf="maxNutritionalValues$ | async; let maxNutritionalValue">
+  <ng-container *ngIf="totalNutritionalValue$ | async; let totalNutritionalValue">
+    <div class="progress-container">
+      <div>
+        <span class="nutrient-title">Calories: {{ totalNutritionalValue.calories }}/{{ maxNutritionalValue.calories }}</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+               role="progressbar"
+               [style.width]="getProgressPercent(totalNutritionalValue.calories, maxNutritionalValue.calories)"
+               [attr.aria-valuenow]="totalNutritionalValue.calories"
+               aria-valuemin="0"
+               [attr.aria-valuemax]="maxNutritionalValue.calories">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="nutrient-title">
+          Protein: {{ totalNutritionalValue.proteins}}/{{ maxNutritionalValue.proteins}}</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+               role="progressbar"
+               [style.width]="getProgressPercent(totalNutritionalValue.proteins, maxNutritionalValue.proteins)"
+               [attr.aria-valuenow]="totalNutritionalValue.proteins"
+               aria-valuemin="0"
+               [attr.aria-valuemax]="maxNutritionalValue.proteins">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="nutrient-title">
+          Carbohydrates: {{ totalNutritionalValue.carbs}}/{{ maxNutritionalValue.carbs}}</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+               role="progressbar"
+               [style.width]="getProgressPercent(totalNutritionalValue.carbs, maxNutritionalValue.carbs)"
+               [attr.aria-valuenow]="totalNutritionalValue.carbs"
+               aria-valuemin="0"
+               [attr.aria-valuemax]="maxNutritionalValue.carbs">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="nutrient-title">Fat: {{ totalNutritionalValue.fats}}/{{ maxNutritionalValue.fats}}</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+               role="progressbar"
+               [style.width]="getProgressPercent(totalNutritionalValue.fats, maxNutritionalValue.fats)"
+               [attr.aria-valuenow]="totalNutritionalValue.fats"
+               aria-valuemin="0"
+               [attr.aria-valuemax]="maxNutritionalValue.fats">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+</ng-container>
+
+<div class="meal-type-buttons">
+  <button type="button" class="add-button" (click)="addMeal('BREAKFAST')">Add Breakfast</button>
+  <button type="button" class="add-button" (click)="addMeal('LUNCH')">Add Lunch</button>
+  <button type="button" class="add-button" (click)="addMeal('DINNER')">Add Dinner</button>
+  <button type="button" class="add-button" (click)="addMeal('SNACK')">Add Snack</button>
+</div>
+
+<div class="margin-meals">
+  <app-view-meals *ngIf="(selectedDateSubject | async) as selectedDate"
+                  [selectedDate]="selectedDate"
+                  (mealDeleted)="loadEvents()">
+  </app-view-meals>
+</div>

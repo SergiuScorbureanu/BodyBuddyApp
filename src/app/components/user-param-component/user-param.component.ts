@@ -4,6 +4,7 @@ import { UserParam } from '../../models/user-param';
 import { UserService } from '../../services/user-service/user.service';
 import { StorageService } from '../../services/storage-service/storage.service';
 import { Router } from '@angular/router';
+import {MessageService} from "../../services/message-service/message.service";
 
 @Component({
   selector: 'app-user-param',
@@ -13,7 +14,6 @@ import { Router } from '@angular/router';
 export class UserParamComponent implements OnInit{
 
   userParamForm!: FormGroup;
-  public userParam = new UserParam;
   isSuccessful: boolean = false;
   errorMessage: string = '';
 
@@ -21,7 +21,8 @@ export class UserParamComponent implements OnInit{
     private fb: FormBuilder,
     private userService: UserService,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
     ) {}
 
   ngOnInit() {
@@ -31,7 +32,8 @@ export class UserParamComponent implements OnInit{
       birthDay: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       trainingType: ['', [Validators.required]],
-      weightGoal: ['', [Validators.required]]
+      weightGoal: ['', [Validators.required]],
+      weightChangeRate: ['', [Validators.required]]
     });
   }
 
@@ -50,20 +52,25 @@ export class UserParamComponent implements OnInit{
           next: (response) => {
             console.log('Success:', response);
             this.isSuccessful = true;
-            this.router.navigate(['calculator']);
+            this.messageService.showSuccess('Successfully created!');
+            this.router.navigate(['/diary']);
           },
           error: (error) => {
-            this.errorMessage = error.error.message;
+            //this.errorMessage = error.error.message;
             console.error('Error:', error);
+            this.messageService.showError('Error');
           }
         });
       } else {
-        this.errorMessage = 'User is not logged in';
+        // this.errorMessage = 'User is not logged in';
         console.error('User is not logged in');
+        this.messageService.showError('User is not logged in');
       }
     } else {
-      this.errorMessage = 'Form is not valid';
+      // this.errorMessage = 'Form is not valid';
       console.error('Form is not valid');
+      this.messageService.showError('Form is not valid');
+
     }
   }
 }

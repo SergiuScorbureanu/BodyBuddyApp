@@ -1,0 +1,43 @@
+<div >
+  <p class="meals-title">My Meals</p>
+</div>
+<div *ngIf="meals$ | async as meals; else noMeals" class="table-view">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Meal Type</th>
+      <th scope="col">Food</th>
+      <th scope="col">Meal Quantity</th>
+      <th scope="col">Calories</th>
+      <th scope="col">Protein</th>
+      <th scope="col">Carbs</th>
+      <th scope="col">Fat</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let meal of meals">
+      <tr>
+        <th scope="row"><i class="fa-solid fa-bowl-rice"></i> {{ meal.mealType }}</th>
+        <th colspan="6"></th>
+        <th class="text-left">
+          <button class="btn btn-danger" (click)="deleteMeal(meal)">Delete Meal</button>
+        </th>
+      </tr>
+
+      <tr *ngFor="let mealFood of meal.foods">
+        <td></td>
+        <td>{{ mealFood.name }}</td>
+        <td>{{ mealFood.mealQuantity }} {{mealFood.measurementUnit}}</td>
+        <td>{{ calculateCalories(mealFood).calories | number: '1.0-0' }} kcal</td>
+        <td>{{ calculateCalories(mealFood).proteins | number: '1.0-0' }} g</td>
+        <td>{{ calculateCalories(mealFood).carbohydrates | number: '1.0-0' }} g</td>
+        <td>{{ calculateCalories(mealFood).fats | number: '1.0-0' }} g</td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>
+<ng-template #noMeals>
+  <p class="no-meals">No meals for the selected date.</p>
+</ng-template>

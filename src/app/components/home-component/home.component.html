@@ -1,0 +1,53 @@
+<div class="home-container">
+  <div class="hero-section">
+    <h1>Welcome to Body Buddy</h1>
+    <p>Your companion for a healthier lifestyle.</p>
+    <button (click)="scrollToContent()" class="discover-button">Discover</button>
+
+    <div class="image-gallery" [@imageAnimation]="imagesLoaded ? images.length : 0">
+      <div *ngFor="let image of images; let i = index" class="image-item" (click)="navigateToMyDiary()">
+        <div class="overlay-text">{{ imageTexts[i] }}</div>
+        <img [src]="image" alt="Dynamic Image" />
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section" #contentSection>
+    <div class="description">
+      <h2>Discover Our Features</h2>
+      <p>Explore the amazing features Body Buddy has to offer, from personalized nutrition plans to comprehensive health tracking.</p>
+    </div>
+    <div class="card-container">
+      <div class="card">
+        <i class="fa-solid fa-person-running card-icon"></i>
+        <h3>Personalization</h3>
+        <p>Find out the daily nutritional intake you need.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-heart-circle-bolt card-icon"></i>
+        <h3>Health</h3>
+        <p>Take care of your health by knowing what you eat.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-chart-simple card-icon"></i>
+        <h3>Stats</h3>
+        <p>Follow your statistics in the calendar.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-utensils card-icon"></i>
+        <h3>Know your body</h3>
+        <p>You can monitor your daily meals.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-palette card-icon"></i>
+        <h3>Diversity</h3>
+        <p>Select from over 500 available foods.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-shield-alt card-icon"></i>
+        <h3>Security</h3>
+        <p>You have account security assured.</p>
+      </div>
+    </div>
+  </div>
+</div>

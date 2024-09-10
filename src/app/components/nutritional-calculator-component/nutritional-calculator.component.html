@@ -1,0 +1,37 @@
+<div class="nutrition-calculator container my-5">
+  <h2 class="text-center font-weight-bold mb-8">Nutritional Calculator</h2>
+  <p class="text-center mb-4 custom-font-size">This is your daily nutritional requirement</p>
+
+  <div *ngIf="userId" class="mx-auto" style="max-width: 1200px;">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Nutrient</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-success">
+          <th scope="row">Calories</th>
+          <td>{{ calories }} kcal</td>
+        </tr>
+        <tr class="table-info">
+          <th scope="row">Protein</th>
+          <td>{{ protein }} g</td>
+        </tr>
+        <tr class="table-warning">
+          <th scope="row">Fat</th>
+          <td>{{ fat }} g</td>
+        </tr>
+        <tr class="table-danger">
+          <th scope="row">Carbohydrates</th>
+          <td>{{ carbohydrates }} g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!userId" class="mx-auto" style="max-width: 800px;">
+    <p>Please login to view the nutritional calculation.</p>
+  </div>
+</div>

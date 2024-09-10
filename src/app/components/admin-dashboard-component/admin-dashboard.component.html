@@ -1,0 +1,59 @@
+<div class="admin-dashboard-container">
+  <div class="statistics">
+    <div class="statistic">
+      <h3>Total Users</h3>
+      <p>{{ totalUsers }}</p>
+    </div>
+    <div class="statistic">
+      <h3>Total Meals</h3>
+      <p>{{ totalMeals }}</p>
+    </div>
+    <div class="statistic">
+      <h3>Total Foods</h3>
+      <p>{{ totalFoods }}</p>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="table table-hover">
+      <thead>
+      <tr class="table-primary">
+        <th scope="col">Picture</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Roles</th>
+        <th scope="col">Birth Day</th>
+        <th scope="col">Training Type</th>
+        <th scope="col">Weight Goal</th>
+        <th scope="col">Weight Change Rate</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Height</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="table-active" *ngFor="let user of users">
+        <td><img [src]="user.picture ? user.picture : '//ssl.gstatic.com/accounts/ui/avatar_2x.png'"
+                 alt="User Picture"
+                 style="width: 40px; height: 40px; border-radius: 50%;">
+
+        </td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.birthDay | date: 'dd-MM-yyyy' }}</td>
+        <td>{{ formatTypes(user.trainingType) }}</td>
+        <td>{{ formatTypes(user.weightGoal) }}</td>
+        <td>{{ formatTypes(user.weightChangeRate) }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.weight }}</td>
+        <td>{{ user.height }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

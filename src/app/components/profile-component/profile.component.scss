@@ -1,0 +1,89 @@
+.container {
+  max-width: 600px;
+  margin: 30px auto 0;
+  padding: 20px;
+  background-color: #385A0E;
+  color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.jumbotron {
+  background-color: #527506;
+  color: whitesmoke;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.edit-button {
+  background-color: #95950E;
+  color: whitesmoke;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+.edit-button:hover {
+  background-color: #C3C20E;
+}
+
+form-group {
+  margin-bottom: 15px;
+}
+
+form-group label {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+
+
+form-control::placeholder {
+  color: #95a5a6;
+  opacity: 1;
+}
+
+.form-update-profile {
+  margin-top: 20px;
+}
+
+form input, form select {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #34495e;
+  border-radius: 8px;
+  background-color: #527506;
+  color: whitesmoke;
+}
+
+form button[type="submit"] {
+  background-color: #95950E;
+  color: whitesmoke;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+form button[type="submit"]:hover {
+  background-color: #C3C20E;
+}
+
+form input::placeholder, form select::placeholder {
+  color: #95a5a6;
+  opacity: 1;
+}
+
+form legend {
+  padding-bottom: 10px;
+  color: whitesmoke;
+}

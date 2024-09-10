@@ -1,0 +1,16 @@
+<p class="meal-title">Add your <span>{{ meal.mealType }}</span> meal!</p>
+<div>
+  <div class="card">
+    <ng-container>
+      <div *ngFor="let selectedMealFood of meal.foods; let i = index" class="food-item">
+        <span class="food-name">{{ selectedMealFood.food.name }} - {{ selectedMealFood.food.calories }} cals / {{selectedMealFood.food.quantity}} {{selectedMealFood.food.measurementUnit}}</span>
+        <input type="number" class="food-quantity" [(ngModel)]="selectedMealFood.quantity" placeholder="Quantity" min="1" (ngModelChange)="onQuantityChange()">
+        <span class="measurement-unit-item">{{ selectedMealFood.food.measurementUnit }}</span>
+        <button class="show-button" (click)="showFoodDetails(selectedMealFood.food)">Show info</button>
+        <button class="delete-button" (click)="deleteFood(i)">Remove</button>
+      </div>
+    </ng-container>
+  </div>
+  <button class="log-button" [disabled]="!isMealFoodsQuantityCompleted()" (click)="logMeal()">Log Meal</button>
+  <app-foods-search [selectedMealFoods]="meal.foods"></app-foods-search>
+</div>

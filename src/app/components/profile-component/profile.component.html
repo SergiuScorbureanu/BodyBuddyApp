@@ -1,22 +1,39 @@
-@if (currentUser) {
-    <div class="container">
-      <header class="jumbotron">
-        <h3>
-          <strong>{{ currentUser.username }}</strong> Profile
-        </h3>
-      </header>
-      <p>
-        <strong>Email:</strong>
-        {{ currentUser.email }}
-      </p>
-      <strong>Roles:</strong>
-      <ul>
-        @for (role of currentUser.roles; track role) {
-        <li>{{ role }}</li>
-        }
-      </ul>
-    </div>
-    } @else {
-    <p>Please login.</p>
-    }
-    
+<div *ngIf="currentUser; else loginPrompt" class="container">
+  <header class="jumbotron">
+    <h3>
+      <img [src]="currentUser.picture ?? '//ssl.gstatic.com/accounts/ui/avatar_2x.png'" alt="profile" style="width: 40px; height: 40px; border-radius: 50%;">
+      {{ currentUser.username }} profile
+    </h3>
+  </header>
+  <p>
+    <strong>Email:</strong>
+    {{ currentUser.email }}
+  </p>
+  <p>
+    <strong>Role:</strong>
+    {{ formatRole(currentUser.role) }}
+  </p>
+  <button class="edit-button" (click)="toggleEdit()">Edit Profile</button>
+
+  <div class="form-update-profile" *ngIf="isEditing">
+    <form [formGroup]="profileForm" (ngSubmit)="onUpdateProfile()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">New Password</label>
+        <input type="password" id="password" formControlName="password" class="form-control">
+      </div>
+      <button type="submit">Update Profile</button>
+    </form>
+  </div>
+</div>
+
+<ng-template #loginPrompt>
+  <p>Please login.</p>
+</ng-template>

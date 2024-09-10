@@ -7,6 +7,8 @@ const USER_KEY = 'auth-user';
 })
 export class StorageService {
 
+  private tokenKey = 'authToken';
+
   constructor() { }
 
   clean(): void {
@@ -44,5 +46,10 @@ export class StorageService {
   public getToken(): string | null {
     const user = this.getUser();
     return user ? user.accessToken : null;
+  }
+
+  public clear(): void {
+    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem('user');
   }
 }

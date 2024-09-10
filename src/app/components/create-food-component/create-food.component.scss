@@ -1,0 +1,75 @@
+form {
+  background-color: #385A0E;
+  color: whitesmoke;
+  padding: 20px 25px 30px;
+  margin: 30px auto 0;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+  max-width: 600px;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input, form select {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  border: 1px solid #34495e;
+  border-radius: 8px;
+  padding: 10px 15px;
+  background-color: #527506;
+  color: whitesmoke;
+}
+
+form input::placeholder, form select::placeholder {
+  color: #95a5a6;
+  opacity: 1;
+}
+
+form button[type="submit"] {
+  background-color: #95950E;
+  color: whitesmoke;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+form button[type="submit"]:hover {
+  background-color: #C3C20E;
+}
+
+form legend {
+  padding-bottom: 10px;
+  color: whitesmoke;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  .add-food-button {
+    background-color: #95950E;
+    color: whitesmoke;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.7);
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+  }
+
+  .add-food-button:hover {
+    background-color: #C3C20E;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.8);
+  }
+}

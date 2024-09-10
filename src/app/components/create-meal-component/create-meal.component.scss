@@ -1,0 +1,98 @@
+.meal-title {
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: bold;
+  color: #385A0E;
+  margin: 20px 0;
+}
+
+.card {
+  max-width: 50%;
+  margin: 20px auto;
+  background-color: #ffffffcc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.food-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #95950E;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .food-name {
+    font-size: 1.0em;
+    flex-grow: 1;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: 20px;
+  }
+
+  .food-quantity {
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 8px;
+    width: 120px;
+  }
+
+  .measurement-unit-item {
+    display: flex;
+    justify-content: end;
+    width: 50px;
+  }
+}
+
+.log-button {
+  background-color: #95950E;
+  color: whitesmoke;
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.7);
+  padding: 10px 60px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  display: block;
+  margin: 20px auto;
+}
+
+.log-button:hover {
+  background-color: #C3C20E;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.8);
+}
+
+.show-button {
+  background-color: #95950E;
+  color: whitesmoke;
+  padding: 10px 20px;
+  margin-left: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+.show-button:hover {
+  background-color: #C3C20E;
+}
+
+.delete-button {
+  background-color: #FF6347;
+  color: whitesmoke;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+.delete-button:hover {
+  background-color: #FF4500;
+}

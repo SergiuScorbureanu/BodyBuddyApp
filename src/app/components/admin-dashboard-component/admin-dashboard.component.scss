@@ -1,0 +1,108 @@
+.admin-dashboard-container {
+  margin-top: 20px;
+  .statistics {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+
+    .statistic {
+      background-color: whitesmoke;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      padding: 5px;
+      width: 150px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      h3 {
+        font-size: 1.5em;
+        color: #527506;
+      }
+
+      p {
+        font-size: 2em;
+        color: #385A0E;
+        margin: 0;
+      }
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+      }
+    }
+  }
+
+  .table-container {
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    max-width: 95%;
+    margin: 0 auto;
+    overflow-x: auto;
+
+    .table {
+      width: 100%;
+      margin-bottom: 20px;
+      color: black;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+
+      th {
+        background-color: #527506;
+        color: whitesmoke;
+        text-align: center;
+        vertical-align: middle;
+        padding: 15px;
+        border-top: 1px solid #dee2e6;
+        border-bottom: 2px solid #dee2e6;
+        border-left: 1px solid #dee2e6;
+        border-right: 1px solid #dee2e6;
+        border-radius: 8px 8px 0 0;
+        &:first-child {
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 0;
+        }
+        &:last-child {
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 15px;
+        background-color: whitesmoke;
+        border: 1px solid whitesmoke;
+        &:first-child {
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
+        &:last-child {
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+      }
+
+      .table-active {
+        background-color: #e9ecef;
+      }
+
+      .btn-danger {
+        background-color: #dc3545;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover {
+          background-color: #c82333;
+        }
+      }
+    }
+  }
+}

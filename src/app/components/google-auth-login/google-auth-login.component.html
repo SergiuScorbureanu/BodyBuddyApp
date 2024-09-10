@@ -1,0 +1,21 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+
+    <h2 class="text-center mb-4">Sign in</h2>
+    <h5 class="text-center mb-4">
+      or
+      <a [routerLink]="['/register']"><span class="theme-color">create an account</span></a>
+    </h5>
+    <button class="btn btn-primary w-100 rounded-2 mb-3" (click)="login('ROLE_USER')">
+      CONTINUE WITH <i class="fa-brands fa-google"></i> AS USER
+    </button>
+    <button class="btn btn-primary w-100 rounded-2" (click)="login('ROLE_MODERATOR')">
+      CONTINUE WITH <i class="fa-brands fa-google"></i> AS MODERATOR
+    </button>
+    <p class="text-center" style="margin-top: 20px">
+      By creating an account, I accept the
+      <span class="fw-semibold">Terms & Conditions & Privacy Policy</span>
+    </p>
+  </div>
+</div>
